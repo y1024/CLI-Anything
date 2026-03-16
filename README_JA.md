@@ -56,7 +56,7 @@ CLIは人間とAIエージェント両方にとって普遍的なインターフ
 
 - **Python 3.10+**
 - 対象ソフトウェアがインストール済みであること（例：GIMP、Blender、LibreOffice、または独自のアプリケーション）
-- サポートされているAIコーディングエージェント: [Claude Code](#-claude-code) | [OpenCode](#-opencode) | [Codex](#-codex) | [Qodercli](#-qodercli) | [その他のプラットフォーム](#-その他のプラットフォーム近日公開)
+- サポートされているAIコーディングエージェント: [Claude Code](#-claude-code) | [OpenClaw](#-openclaw) | [OpenCode](#-opencode) | [Codex](#-codex) | [Qodercli](#-qodercli) | [その他のプラットフォーム](#-その他のプラットフォーム近日公開)
 
 ### プラットフォームを選択
 
@@ -202,6 +202,33 @@ bash CLI-Anything/qoder-plugin/setup-qodercli.sh
 /cli-anything:refine ./gimp "バッチ処理とフィルタ"
 /cli-anything:validate ./gimp
 ```
+</details>
+
+<details>
+
+<summary><h4 id="-openclaw">⚡ OpenClaw</h4></summary>
+
+**ステップ1: スキルのインストール**
+
+CLI-Anything はネイティブな OpenClaw `SKILL.md` ファイルを提供しています。OpenClaw のスキルディレクトリにコピーしてください：
+
+```bash
+# リポジトリをクローン
+git clone https://github.com/HKUDS/CLI-Anything.git
+
+# グローバルスキルフォルダにインストール
+mkdir -p ~/.openclaw/skills/cli-anything
+cp CLI-Anything/openclaw-skill/SKILL.md ~/.openclaw/skills/cli-anything/SKILL.md
+```
+
+**ステップ2: CLIの構築**
+
+インストール後、OpenClaw 内で以下のようにスキルを呼び出せます：
+
+`@cli-anything build a CLI for ./gimp`
+
+このスキルは Claude Code や OpenCode と同じ7段階の方法論に従っています。
+
 </details>
 
 <details>

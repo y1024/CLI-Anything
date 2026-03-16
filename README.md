@@ -7,8 +7,8 @@ CLI-Anything: Bridging the Gap Between AI Agents and the World's Software</stron
 
 <p align="center">
   <a href="#-quick-start"><img src="https://img.shields.io/badge/Quick_Start-5_min-blue?style=for-the-badge" alt="Quick Start"></a>
-  <a href="#-demonstrations"><img src="https://img.shields.io/badge/Demos-12_Apps-green?style=for-the-badge" alt="Demos"></a>
-  <a href="#-test-results"><img src="https://img.shields.io/badge/Tests-1%2C578_Passing-brightgreen?style=for-the-badge" alt="Tests"></a>
+  <a href="#-demonstrations"><img src="https://img.shields.io/badge/Demos-13_Apps-green?style=for-the-badge" alt="Demos"></a>
+  <a href="#-test-results"><img src="https://img.shields.io/badge/Tests-1%2C588_Passing-brightgreen?style=for-the-badge" alt="Tests"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge" alt="License"></a>
 </p>
 
@@ -34,6 +34,20 @@ CLI-Anything: Bridging the Gap Between AI Agents and the World's Software</stron
 
 ---
 
+## 📰 News
+
+> Thanks to all invaluable efforts from the community! More updates continuously on the way everyday..
+
+| Date | Update |
+|------|--------|
+| **2026-03-15** | Support for OpenClaw from the Community! Merged Windows cygpath guard to ensure CLI-Anything works reliably in Windows bash environments without cygpath. Community contributions continue to strengthen cross-platform support. |
+| **2026-03-14** | Fixed a GIMP Script-Fu path injection vulnerability and added Japanese README translation. OpenCode version requirements documented alongside several Windows compatibility improvements. |
+| **2026-03-13** | Qodercli plugin officially merged as a community contribution with dedicated setup scripts. Codex skill gained a Windows install script, and placeholder URLs were cleaned up across the project. |
+| **2026-03-12** | Codex skill integration landed, bringing CLI-Anything to yet another AI coding platform. Qodercli support was also introduced, and documentation was updated with limitations and experimental labels. |
+| **2026-03-11** | Zoom video conferencing harness added as the 11th supported application. Multiple community fixes shipped for Shotcut auto-save, LibreOffice Windows/macOS backend, and OpenCode support. |
+
+---
+
 ## 🤔 Why CLI?
 
 CLI is the universal interface for both humans and AI agents:
@@ -56,7 +70,7 @@ CLI is the universal interface for both humans and AI agents:
 
 - **Python 3.10+**
 - Target software installed (e.g., GIMP, Blender, LibreOffice, or your own application)
-- A supported AI coding agent: [Claude Code](#-claude-code) | [OpenCode](#-opencode) | [Codex](#-codex) | [Qodercli](#-qodercli) | [More Platforms](#-more-platforms-coming-soon)
+- A supported AI coding agent: [Claude Code](#-claude-code) | [OpenClaw](#-openclaw) | [OpenCode](#-opencode) | [Codex](#-codex) | [Qodercli](#-qodercli) | [More Platforms](#-more-platforms-coming-soon)
 
 ### Pick Your Platform
 
@@ -81,7 +95,7 @@ CLI-Anything is distributed as a Claude Code plugin marketplace hosted on GitHub
 
 That's it. The plugin is now available in your Claude Code session.
 
-**Windows note:** Claude Code runs shell commands via `bash`. On Windows, install Git for Windows (includes `bash` and
+> **Note for Win Users:** Claude Code runs shell commands via `bash`. On Windows, install Git for Windows (includes `bash` and
 `cygpath`) or use WSL; otherwise commands may fail with `cygpath: command not found`.
 
 **Step 3: Build a CLI in One Command**
@@ -142,7 +156,7 @@ cp -r CLI-Anything/cli-anything-plugin ~/.claude/plugins/cli-anything
 
 **Step 1: Install the Commands**
 
-**Note:** Please upgrade to the latest OpenCode. Older versions may use a different commands path.
+> **Note:** Please upgrade to the latest OpenCode. Older versions may use a different commands path.
 
 Copy the CLI-Anything commands **and** `HARNESS.md` to your OpenCode commands directory:
 
@@ -207,6 +221,33 @@ This registers the cli-anything plugin in `~/.qoder.json`. Start a new Qodercli 
 /cli-anything:refine ./gimp "batch processing and filters"
 /cli-anything:validate ./gimp
 ```
+</details>
+
+<details>
+
+<summary><h4 id="-openclaw">⚡ OpenClaw <sup><code>Community</code></sup></h4></summary>
+
+**Step 1: Install the Skill**
+
+CLI-Anything provides a native OpenClaw `SKILL.md` file. Copy it to your OpenClaw skills directory:
+
+```bash
+# Clone the repo
+git clone https://github.com/HKUDS/CLI-Anything.git
+
+# Install to the global skills folder
+mkdir -p ~/.openclaw/skills/cli-anything
+cp CLI-Anything/openclaw-skill/SKILL.md ~/.openclaw/skills/cli-anything/SKILL.md
+```
+
+**Step 2: Build a CLI**
+
+Now you can invoke the skill inside OpenClaw:
+
+`@cli-anything build a CLI for ./gimp`
+
+The skill follows the same 7-phase methodology as Claude Code and OpenCode.
+
 </details>
 
 <details>
@@ -320,7 +361,7 @@ AI agents are great at reasoning but terrible at using real professional softwar
 | 💸 "UI automation breaks constantly" | No screenshots, no clicking, no RPA fragility. Pure command-line reliability with structured interfaces |
 | 📊 "Agents need structured data" | Built-in JSON output for seamless agent consumption + human-readable formats for debugging |
 | 🔧 "Custom integrations are expensive" | One Claude plugin auto-generates CLIs for ANY codebase through proven 7-phase pipeline |
-| ⚡ "Prototype vs Production gap" | 1,578+ tests with real software validation. Battle-tested across 12 major applications |
+| ⚡ "Prototype vs Production gap" | 1,588+ tests with real software validation. Battle-tested across 13 major applications |
 
 ---
 
@@ -409,7 +450,7 @@ All CLIs organized under cli_anything.* namespace — conflict-free, pip-install
 CLI-Anything works on any software with a codebase — no domain restrictions or architectural limitations.
 
 ### 🏭 Professional-Grade Testing
-Tested across 12 diverse, complex applications spanning creative, productivity, communication, diagramming, AI image generation, and AI content generation domains previously inaccessible to AI agents.
+Tested across 13 diverse, complex applications spanning creative, productivity, communication, diagramming, AI image generation, and AI content generation domains previously inaccessible to AI agents.
 
 ### 🎨 Diverse Domain Coverage
 From creative workflows (image editing, 3D modeling, vector graphics) to production tools (audio, office, live streaming, video editing).
@@ -496,6 +537,13 @@ Each application received complete, production-ready CLI interfaces — not demo
 <td align="center">✅ 138</td>
 </tr>
 <tr>
+<td align="center"><strong>🧜 Mermaid Live Editor</strong></td>
+<td>Diagramming</td>
+<td><code>cli-anything-mermaid</code></td>
+<td>Mermaid state + mermaid.ink renderer</td>
+<td align="center">✅ 10</td>
+</tr>
+<tr>
 <td align="center"><strong>✨ AnyGen</strong></td>
 <td>AI Content Generation</td>
 <td><code>cli-anything-anygen</code></td>
@@ -511,11 +559,11 @@ Each application received complete, production-ready CLI interfaces — not demo
 </tr>
 <tr>
 <td align="center" colspan="4"><strong>Total</strong></td>
-<td align="center"><strong>✅ 1,578</strong></td>
+<td align="center"><strong>✅ 1,588</strong></td>
 </tr>
 </table>
 
-> **100% pass rate** across all 1,578 tests — 1,133 unit tests + 445 end-to-end tests.
+> **100% pass rate** across all 1,588 tests — 1,138 unit tests + 450 end-to-end tests.
 
 ---
 
@@ -542,10 +590,11 @@ kdenlive      155 passed  ✅   (111 unit + 44 e2e)
 shotcut       154 passed  ✅   (110 unit + 44 e2e)
 zoom           22 passed  ✅   (22 unit + 0 e2e)
 drawio        138 passed  ✅   (116 unit + 22 e2e)
+mermaid        10 passed  ✅   (5 unit + 5 e2e)
 anygen         50 passed  ✅   (40 unit + 10 e2e)
 comfyui        70 passed  ✅   (60 unit + 10 e2e)
 ──────────────────────────────────────────────────────────────────────────────
-TOTAL        1,578 passed  ✅   100% pass rate
+TOTAL        1,588 passed  ✅   100% pass rate
 ```
 
 ---
@@ -604,6 +653,7 @@ cli-anything/
 ├── 🎬 shotcut/agent-harness/            # Shotcut CLI (154 tests)
 ├── 📞 zoom/agent-harness/               # Zoom CLI (22 tests)
 ├── 📐 drawio/agent-harness/             # Draw.io CLI (138 tests)
+├── 🧜 mermaid/agent-harness/            # Mermaid Live Editor CLI (10 tests)
 ├── ✨ anygen/agent-harness/             # AnyGen CLI (50 tests)
 └── 🖼️ comfyui/agent-harness/            # ComfyUI CLI (70 tests)
 ```
@@ -706,7 +756,7 @@ HARNESS.md is our definitive SOP for making any software agent-accessible via au
 
 It encodes proven patterns and methodologies refined through automated generation processes.
 
-The playbook distills key insights from successfully building all 12 diverse, production-ready harnesses.
+The playbook distills key insights from successfully building all 13 diverse, production-ready harnesses.
 
 ### Critical Lessons
 
@@ -831,7 +881,7 @@ MIT License — free to use, modify, and distribute.
 
 **CLI-Anything** — *Make any software with a codebase Agent-native.*
 
-<sub>A methodology for the age of AI agents | 12 professional software demos | 1,578 passing tests</sub>
+<sub>A methodology for the age of AI agents | 13 professional software demos | 1,588 passing tests</sub>
 
 <br>
 
