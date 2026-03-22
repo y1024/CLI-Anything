@@ -19,7 +19,7 @@ def get_last_modified(harness_path):
 def main():
     repo_root = Path(__file__).parent.parent.parent
     registry_path = repo_root / 'registry.json'
-    dates_path = repo_root / 'registry-dates.json'
+    dates_path = repo_root / 'docs' / 'registry-dates.json'
 
     with open(registry_path) as f:
         data = json.load(f)

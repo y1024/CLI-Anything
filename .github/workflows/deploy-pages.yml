@@ -6,6 +6,8 @@ on:
       - main
     paths:
       - '*/agent-harness/**'
+      - '.github/workflows/deploy-pages.yml'
+      - '.github/scripts/update_registry_dates.py'
   workflow_dispatch:
 
 permissions:
@@ -32,15 +34,16 @@ jobs:
       - name: Generate registry dates
         run: python3 .github/scripts/update_registry_dates.py
 
-      - name: Prepare Pages content
-        run: |
-          mkdir -p _pages
-          cp registry-dates.json _pages/
+      - name: Build with Jekyll
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./docs
+          destination: ./docs/_site
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '_pages'
+          path: './docs/_site'
 
   deploy:
     environment:
