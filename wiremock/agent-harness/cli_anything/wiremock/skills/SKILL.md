@@ -100,14 +100,17 @@ cli-anything-wiremock record stop
 
 ### Always use `--json` in agent contexts
 
-Use `--json` for all invocations in scripts or agent tool calls. This returns the raw WireMock API response JSON directly (no envelope wrapper):
+Use `--json` for all invocations in scripts or agent tool calls. JSON output varies by command type (these are distinct response types, not an envelope wrapping all responses):
 
 ```bash
-# Example: create a stub and get the raw WireMock response
+# Data commands return raw WireMock API JSON directly:
 cli-anything-wiremock --json stub quick GET /api/hello 200 --body '{"hello":"world"}'
 # → {"id": "abc-123", "request": {...}, "response": {...}, ...}
 
-# Commands with no response body return:
+cli-anything-wiremock --json stub list
+# → {"mappings": [...], "total": N}
+
+# Void commands (delete, reset, save) return:
 # → {"status": "ok"}
 
 # Errors return:

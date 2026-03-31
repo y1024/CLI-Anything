@@ -44,4 +44,4 @@ export WIREMOCK_PORT=8080
 export WIREMOCK_SCHEME=http
 ```
 
-See `../WIREMOCK.md` for the full SOP.
+For the full SOP and workflow recipes, see `WIREMOCK.md` in the agent-harness directory (available in the source repository, not in installed packages).

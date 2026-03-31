@@ -23,34 +23,38 @@ class WireMockClient:
         )
 
     def post(self, path: str, json=None, **kwargs) -> requests.Response:
+        timeout = kwargs.pop("timeout", self.timeout)
         return requests.post(
             f"{self.base_url()}{path}",
             json=json,
             auth=self.auth,
-            timeout=self.timeout,
+            timeout=timeout,
             **kwargs,
         )
 
     def put(self, path: str, json=None, **kwargs) -> requests.Response:
+        timeout = kwargs.pop("timeout", self.timeout)
         return requests.put(
             f"{self.base_url()}{path}",
             json=json,
             auth=self.auth,
-            timeout=self.timeout,
+            timeout=timeout,
             **kwargs,
         )
 
     def delete(self, path: str, **kwargs) -> requests.Response:
+        timeout = kwargs.pop("timeout", self.timeout)
         return requests.delete(
-            f"{self.base_url()}{path}", auth=self.auth, timeout=self.timeout, **kwargs
+            f"{self.base_url()}{path}", auth=self.auth, timeout=timeout, **kwargs
         )
 
     def patch(self, path: str, json=None, **kwargs) -> requests.Response:
+        timeout = kwargs.pop("timeout", self.timeout)
         return requests.patch(
             f"{self.base_url()}{path}",
             json=json,
             auth=self.auth,
-            timeout=self.timeout,
+            timeout=timeout,
             **kwargs,
         )
 

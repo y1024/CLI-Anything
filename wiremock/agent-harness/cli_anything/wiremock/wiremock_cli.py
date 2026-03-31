@@ -1,4 +1,5 @@
 import json
+import requests
 import click
 from cli_anything.wiremock.utils.client import WireMockClient
 from cli_anything.wiremock.utils.output import error, print_json, print_table, success
@@ -587,17 +588,20 @@ def shutdown(ctx):
     client = ctx.obj
     json_mode = ctx.meta.get("json_mode", False)
     try:
-        client.post("/shutdown")
+        r = client.post("/shutdown")
+        r.raise_for_status()
         if json_mode:
             print_json({"status": "ok", "message": "Shutdown signal sent"})
         else:
-            success("Shutdown signal sent")
-    except Exception:
-        # Server may drop connection before responding
+            click.echo("Shutdown signal sent")
+    except (ConnectionError, requests.exceptions.ConnectionError):
+        # Server drops connection on successful shutdown — this is expected
         if json_mode:
             print_json({"status": "ok", "message": "Shutdown signal sent"})
         else:
-            click.echo("Shutdown signal sent (connection may have closed)")
+            click.echo("Shutdown signal sent (server connection closed)")
+    except Exception as e:
+        error(str(e), json_mode)
 
 
 if __name__ == "__main__":
