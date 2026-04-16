@@ -958,7 +958,7 @@ Each application received complete, production-ready CLI interfaces — not demo
 <td align="center">✅ 24</td>
 </tr>
 <tr>
-<td align="center"><strong>🟩 <a href="nsight-graphics/">Nsight Graphics CLI</a></strong></td>
+<td align="center"><strong>🟩 <a href="nsight-graphics/agent-harness/">Nsight Graphics CLI</a></strong></td>
 <td>GPU Debugging & Profiling</td>
 <td><code>cli-anything-nsight-graphics</code></td>
 <td>Official ngfx / ngfx-capture orchestration + GPU Trace summary</td>
@@ -1112,7 +1112,7 @@ cli-anything/
 ├── ☁️ cloudcompare/agent-harness/       # CloudCompare CLI (88 tests)
 ├── 🔍 exa/agent-harness/               # Exa CLI (40 tests)
 └── ⛅ cloudanalyzer/agent-harness/      # CloudAnalyzer CLI (14 tests)
-├── 🟩 nsight-graphics/                  # Nsight Graphics CLI (32 tests)
+├── 🟩 nsight-graphics/agent-harness/    # Nsight Graphics CLI (32 tests)
 ```
 
 Each `agent-harness/` contains an installable Python package under `cli_anything.<software>/` with Click CLI, core modules, utils (including `repl_skin.py` and backend wrapper), and comprehensive tests.

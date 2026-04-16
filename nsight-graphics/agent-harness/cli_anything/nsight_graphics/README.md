@@ -212,3 +212,31 @@ That gives you:
 - the `.ngfx-gputrace` artifact
 - exported `FRAME.xls`, `GPUTRACE_FRAME.xls`, and `D3DPERF_EVENTS.xls`
 - a parsed summary with frame time, estimated FPS, selected counters, and top GPU events
+
+## Human + AI Workflow
+
+When a human is directing an AI agent, the most effective requests usually specify:
+
+1. which Nsight version to use
+2. the target executable
+3. the working directory
+4. the target arguments
+5. the activity to run
+6. the trigger condition
+7. the artifact or summary to return
+
+Example:
+
+```text
+Use Nsight Graphics 2026.1.0 for this executable.
+Wait for me to press F11.
+After GPU Trace finishes, give me:
+- frame time
+- estimated FPS
+- draw count and dispatch count
+- top 10 GPU events
+- short diagnosis of the likely bottleneck
+Program: D:/path/to/App.exe
+Working dir: D:/path/to
+Args: "D:\path\project.uproject" -dx12 -log -newconsole
+```
