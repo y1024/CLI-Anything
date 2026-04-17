@@ -237,7 +237,12 @@ def extract_cli_metadata(harness_path: str) -> SkillMetadata:
     command_groups = extract_commands_from_cli(cli_file) if cli_file.exists() else []
     examples = generate_examples(software_name, command_groups)
     skill_name = f"cli-anything-{software_name}"
-    skill_description = f"Command-line interface for {_format_display_name(software_name)} - {skill_intro[:100]}..."
+    if skill_intro:
+        intro_snippet = skill_intro[:100]
+        suffix = "..." if len(skill_intro) > 100 else ""
+        skill_description = f"Command-line interface for {_format_display_name(software_name)} - {intro_snippet}{suffix}"
+    else:
+        skill_description = f"Command-line interface for {_format_display_name(software_name)}"
 
     return SkillMetadata(
         skill_name=skill_name,
